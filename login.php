@@ -6,7 +6,17 @@ $allowedUserTYPE = ["free-web-app"];
 //"pro","pro-manual","pro-digistore","pro-digistore-reduced","pro-ios","pro-android",
 session_start();
 //ession_destroy();
-         
+
+if(empty($_SESSION['recipeItem'])){
+   $config['username']= "rezepte@chooseyourlevel.de";
+
+   $config['password']= 12341234;
+   
+   $allRecipes = getTotalRecipe($config);
+   $_SESSION['recipeItem'] = $allRecipes;
+
+}
+
 
 if (isset($_SESSION['userInfo']) && $_SESSION['userInfo'] != ''){
   header('Location: index.php');
