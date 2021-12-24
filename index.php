@@ -1,3 +1,18 @@
+
+<?php 
+$config = include('config.php');
+include('function.php');
+session_start();
+if(empty($_SESSION['recipeItem'])){
+   $config['username']= "rezepte@chooseyourlevel.de";
+
+   $config['password']= 12341234;
+   
+   $allRecipes = getTotalRecipe($config);
+   $_SESSION['recipeItem'] = $allRecipes;
+
+}
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -49,7 +64,6 @@
               <a href="#" class="btn btn-green btn-sm">Sign Up</a>
                          <?php
 
- session_start();
  // var_dump($_SESSION["userInfo"]);
  if(empty($_SESSION["userInfo"])){ 
 ?>
@@ -383,85 +397,7 @@
                                   <li class="graph_nam">
                                     <div class="graph_icon"><img src="./img/carett.png"></div>
                                     <div class="graph_card">                              
-                                      <img src="./img/graphh.png">
-                                    </div>
-                                    <div class="graph_calori">
-                                      <div class="calori_text">
-                                        <h5>Colories</h5>
-                                        <h6>1136</h6>
-                                      </div>
-                                    </div>
-                                    <div class="graphy-bar-calori">
-                                      <div class="graphy_bar">
-                                        <div class="bar_lbl_data">
-                                          <p class="lbl_data1">Proteins</p>
-                                          <p class="lbl_data2">20g</p>
-                                        </div>
-                                        <!-- <progress id="protine" value="32" max="100"></progress> -->
-                                        <div class="progrss_bar" style="height:4px;width:20%; background: orange;"></div>
-                                      </div>
-                                      <div class="graphy_bar">
-                                        <div class="bar_lbl_data">
-                                          <p class="lbl_data1">Fats</p>
-                                          <p class="lbl_data2">8g</p>
-                                        </div>
-                                        <div class="progrss_bar" style="height:4px;width:10%; background: green;"></div>
-                                      </div>
-                                      <div class="graphy_bar">
-                                        <div class="bar_lbl_data">
-                                          <p class="lbl_data1">Carbs</p>
-                                          <p class="lbl_data2">42g</p>
-                                        </div>
-                                        <div class="progrss_bar" style="height:4px;width:42%; background: #ff0;"></div>
-                                      </div>
-                                      <div class="graph_calori1">
-                                        <div class="calori_text">
-                                          <h5>Colories</h5>
-                                          <h6>1136</h6>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </li>
-                                  <li class="graph_nam">
-                                    <div class="graph_icon"><img src="./img/carett.png"></div>
-                                    <div class="graph_card">                              
-                                      <img src="./img/graphh.png">
-                                    </div>
-                                    <div class="graph_calori">
-                                      <div class="calori_text">
-                                        <h5>Colories</h5>
-                                        <h6>836</h6>
-                                      </div>
-                                    </div>
-                                  </li>
-                                  <li class="graph_nam">
-                                    <div class="graph_icon"><img src="./img/carett.png"></div>
-                                    <div class="graph_card">                              
-                                      <img src="./img/graphh.png">
-                                    </div>
-                                    <div class="graph_calori">
-                                      <div class="calori_text">
-                                        <h5>Colories</h5>
-                                        <h6>812</h6>
-                                      </div>
-                                    </div>
-                                  </li>
-                                  <li class="graph_nam">
-                                    <div class="graph_icon"><img src="./img/carett.png"></div>
-                                    <div class="graph_card">                              
-                                      <img src="./img/graphh.png">
-                                    </div>
-                                    <div class="graph_calori">
-                                      <div class="calori_text">
-                                        <h5>Colories</h5>
-                                        <h6>216</h6>
-                                      </div>
-                                    </div>
-                                  </li>
-                                  <li class="graph_nam">
-                                    <div class="graph_icon"><img src="./img/carett.png"></div>
-                                    <div class="graph_card">                              
-                                      <img src="./img/graphh.png">
+                                       <div id="piechart_3d" ></div>
                                     </div>
                                     <div class="graph_calori">
                                       <div class="calori_text">
@@ -470,30 +406,68 @@
                                       </div>
                                     </div>
                                   </li>
-                                  <li class="graph_nam">
+                                   <li class="graph_nam">
                                     <div class="graph_icon"><img src="./img/carett.png"></div>
                                     <div class="graph_card">                              
-                                      <img src="./img/graphh.png">
+                                       <div id="piechart_3d" ></div>
                                     </div>
                                     <div class="graph_calori">
                                       <div class="calori_text">
                                         <h5>Colories</h5>
-                                        <h6>452</h6>
+                                        <h6>1136</h6>
                                       </div>
                                     </div>
                                   </li>
-                                 <!--  <li class="graph_nam">
+                                   <li class="graph_nam">
                                     <div class="graph_icon"><img src="./img/carett.png"></div>
                                     <div class="graph_card">                              
-                                      <img src="./img/graphh.png">
+                                       <div id="piechart_3d" ></div>
                                     </div>
                                     <div class="graph_calori">
                                       <div class="calori_text">
                                         <h5>Colories</h5>
-                                        <h6>900</h6>
+                                        <h6>1136</h6>
                                       </div>
                                     </div>
-                                  </li>      -->                                             
+                                  </li>
+                                   <li class="graph_nam">
+                                    <div class="graph_icon"><img src="./img/carett.png"></div>
+                                    <div class="graph_card">                              
+                                       <div id="piechart_3d" ></div>
+                                    </div>
+                                    <div class="graph_calori">
+                                      <div class="calori_text">
+                                        <h5>Colories</h5>
+                                        <h6>1136</h6>
+                                      </div>
+                                    </div>
+                                  </li>
+                                   <li class="graph_nam">
+                                    <div class="graph_icon"><img src="./img/carett.png"></div>
+                                    <div class="graph_card">                              
+                                       <div id="piechart_3d" ></div>
+                                    </div>
+                                    <div class="graph_calori">
+                                      <div class="calori_text">
+                                        <h5>Colories</h5>
+                                        <h6>1136</h6>
+                                      </div>
+                                    </div>
+                                  </li>
+                                   <li class="graph_nam">
+                                    <div class="graph_icon"><img src="./img/carett.png"></div>
+                                    <div class="graph_card">                              
+                                       <div id="piechart_3d" ></div>
+                                    </div>
+                                    <div class="graph_calori">
+                                      <div class="calori_text">
+                                        <h5>Colories</h5>
+                                        <h6>1136</h6>
+                                      </div>
+                                    </div>
+                                  </li>
+
+                                                                               
                                 </ul>
                               </div>
                             </div>
@@ -794,6 +768,37 @@
     $(this).parent().remove();    
   });
 </script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Work',     11],
+          ['Eat',      2],
+          ['Commute',  2],
+          ['Watch TV', 2],
+          ['Sleep',    7]
+        ]);
+
+        var options = {
+         // title: 'My Daily Activities',
+          is3D: true,
+
+          legend: 'none',       
+           };
+        // var options = {
+      //   legend: 'none',
+      //   pieSliceText: 'label',
+      //   title: 'Swiss Language Use (100 degree rotation)',
+      //   pieStartAngle: 100,
+      // };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+      }
+    </script>
   
 
   </body>
