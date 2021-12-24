@@ -188,8 +188,13 @@ if(empty($_SESSION['recipeItem'])){
                        // var_dump($_SESSION['recipeItem']);
                        if(!empty($_SESSION['recipeItem'])) {
                                               $data =  $_SESSION['recipeItem'] ;
+                                              //echo "<pre>" ;
+                                              //print_r($data);
 
-                          foreach ($data  as $key => $value) { 
+
+
+
+                              foreach ($data  as $key => $value) { 
          ?>
                             <li class="ui-state-default1 drag ouside ">
                           <div class="search_card">
@@ -636,7 +641,7 @@ if(empty($_SESSION['recipeItem'])){
 <!-- //Drag and clone -->
   <script>   
    $(document).ready(function(){
-    $(document).on('mouseover','#sortable1 > li',function(){
+       $(document).on('mouseover','#sortable1 > li',function(){
       if(!$(this).hasClass("ui-draggable-handle")){
         $(this).trigger("click");
       }
@@ -644,21 +649,25 @@ if(empty($_SESSION['recipeItem'])){
     });
    
    });
+    var total=0;
+
     (function ($) {
       $.fn.liveDraggable = function (opts) {
           this.click("mouseover", function() {
             if (!$(this).data("init")) {
               $(this).data("init", true).draggable(opts);
-              $(this).removeClass("drag");
+              // total += $(this).data("total");
+              //  alert(total);        
+                $(this).removeClass("drag");
             }
-          });
+           });
           return this;
       };
     }(jQuery));
     $('.drag').liveDraggable({
       helper: 'clone',
       cursor: 'move'    
-  });   
+  });    
 
     
   </script> 
@@ -693,7 +702,7 @@ if(empty($_SESSION['recipeItem'])){
           start_dropped = false;
           console.log("coming here 2");
           if (dropped) {
-              if (draggable_sibling.length == 0)
+               if (draggable_sibling.length == 0)
                 $('.sortable').prepend(ui.item);
 
             draggable_sibling.after(ui.item);
@@ -784,10 +793,10 @@ if(empty($_SESSION['recipeItem'])){
 
         var options = {
          // title: 'My Daily Activities',
-          is3D: true,
+          is3D: false,
 
           legend: 'none',       
-           };
+            };
         // var options = {
       //   legend: 'none',
       //   pieSliceText: 'label',
